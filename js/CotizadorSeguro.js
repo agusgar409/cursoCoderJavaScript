@@ -105,4 +105,4 @@ function showSeguros() {
     alert("los seguros disponibles son: \n" +listSeguros[0]+ "\n"+listSeguros[1]+"\n"+listSeguros[2])
 }
 
-console.log(cotizador());
+// console.log(cotizador());
