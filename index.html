@@ -48,41 +48,34 @@
             </div>
           </nav>
 
-          <h1>Cotizador de Seguros</h1>
+        <h1 class="mt-3 mb-3" style="text-align:center">Cotizador de Seguros</h1>
         <main>
             <div>
 
             </div>
-            <div style="width: 40% ; height: 40%">
-                <form>
+                <form class="grid-main">
+                  <div>
                     <label>Nombre completo: </label>
-                    <input type="text"/>
-                    <div class="input-group mb-3">
+                    <input class=" mb-3 form-control" type="text" placeholder="Default input" aria-label="default input example">
+                  </div>
+                    <div>
+                      <label>Numero patente: </label>
+                      <input class="mb-3 form-control" type="text" placeholder="Default input" aria-label="default input example">
+                    </div>
+                    <div class="input-group mb-3 mt-2">
                         <label class="input-group-text" for="inputGroupSelect01">Marcas</label>
                         <select class="form-select" id="inputGroupSelect01">
-                            <option selected>Choose...</option>
-                            <option value="1">Chevrolette</option>
-                            <option value="2">Renault</option>
-                            <option value="3">Citroen</option>
+                            <script source="./js/CotizadorSeguro.js" onclick="listMarcas"></script>
                         </select>
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 mt-2">
                         <label class="input-group-text" for="inputGroupSelect01">Modelos</label>
-                        <select class="form-select" id="inputGroupSelect01">
+                        <select class="form-select" id="inputGroupSelect02">
                             <option selected>Choose...</option>
-                            <option value="1">modelo 1</option>
-                            <option value="2">modelo 2</option>
-                            <option value="3">modelo 3</option>
+                            <script src=""></script>
                         </select>
                     </div>
-                           
-        
-                    
-                    
-        
-                    
                 </form>
-            </div>
         </main>
         
         

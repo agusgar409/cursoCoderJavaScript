@@ -39,6 +39,13 @@ const listVolksWaguen = ["Clio","Kwid","Fluence"];
 const listMarcas = ["Chevrolette","VolksWaguen","Renault"]
 const listSeguros = [" seguro contra terceros"," seguro contra terceros completo"," contra todo riesgo"]
 
+//crear el objeto marca, modelo y seguros
+//ahcer un arrayMarcas.push(new Marca(1,Chevrollete));
+// asi con los 3
+
+
+// despues hacer una funcion de orden superior para que cree options a los select;
+
 function cotizarAuto (){
     let modelo;
     let marca;
@@ -106,3 +113,12 @@ function showSeguros() {
 }
 
 // console.log(cotizador());
+
+const listaMarcas = document.querySelector("inputGroupSelect01");
+
+listMarcas.forEach(marca => {
+    let option = document.createElement("option")
+    listaMarcas.appendChild(option)
+}) 
+
+
