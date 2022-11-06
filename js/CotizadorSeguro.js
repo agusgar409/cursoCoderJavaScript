@@ -1,12 +1,70 @@
-// const Asegurado = (modelo,marca,anio) => {
-//     this.marca = marca;
-//     this.modelo = modelo;
-//     this.anio = anio;
-// }
+// import { listChevrolette, listMarcas,listRenault,listVolksWaguen,listSeguros } from "./inicializacionListas";
+function Marca(id,nombreMarca){
+    this.id = id;
+    this.nombreMarca = nombreMarca
+    this.modelos = [];
+}
+
+function Modelo(id,nombreModelo){
+    this.id = id;
+    this.nombreModelo = nombreModelo;
+}
+
+function Seguro(id,nombreSeguro){
+    this.id = id;
+    this.nombreSeguro = nombreSeguro;
+}
+
+const chevrolette = new Marca(1,"Chevrolette")
+const renault = new Marca(3,"Renault")
+const volksWaguen = new Marca(2,"VolksWaguen")
+
+
+const listChevrolette = ["Onix","Prisma","Cruze"];
+const listVolksWaguen = ["Gol","Gol Trend","Golf"];
+const listRenault = ["Clio","Kwid","Fluence"];
+const listMarcas = [chevrolette,volksWaguen,renault]
+
+const listSeguros = [" seguro contra terceros"," seguro contra terceros completo"," contra todo riesgo"]
+const listSegurosObject = [];
+
+
+
+// ------------------------------------  funcion de clase superior
+
+function addModelsToObject(listNames,marcaActual){
+    debugger
+    let i = 1;
+    listNames.forEach(element => {
+        let model = new Modelo(i,element);
+        marcaActual.modelos.push(model) ;
+        i++;
+    });
+}
+
+function inicializarSeguros(listSeguros,listSegurosObject){
+    let i = 1;
+    listSeguros.forEach(element => { 
+        let seguro = new Seguro(i,element);
+        listSegurosObject.push(seguro)
+        i++;
+    })
+    
+    console.log(listSegurosObject);
+}
+
+addModelsToObject(listChevrolette,chevrolette);
+addModelsToObject(listRenault,renault);
+addModelsToObject(listVolksWaguen,volksWaguen);
+inicializarSeguros(listSeguros,listSegurosObject);
+
+
+// -------------------------------------------------------------------
+
+
 
 function cotizador(){
     let option
-    debugger
     
     while(option != "4"){
         
@@ -33,18 +91,10 @@ function cotizador(){
     }
 }
 
-const listChevrolette = ["Onix","Prisma","Cruze"];
-const listRenault = ["Gol","Gol Trend","Golf"];
-const listVolksWaguen = ["Clio","Kwid","Fluence"];
-const listMarcas = ["Chevrolette","VolksWaguen","Renault"]
-const listSeguros = [" seguro contra terceros"," seguro contra terceros completo"," contra todo riesgo"]
-
 function cotizarAuto (){
     let modelo;
     let marca;
     let anio;
-    debugger
-    
 
     while(marca != "4"){
 
@@ -60,6 +110,8 @@ function cotizarAuto (){
             case "3":
                 modelo = prompt("ingrese el modelo del auto. \n Tenemos las siguientes opciones disponibles: \n 1 - Clio \n 2 - Kwid \n 3 - Fluence \n x - para volver atras");
                 break
+            default:
+                break
         }
 
         while(modelo != "4" || modelo != undefined){
@@ -68,7 +120,7 @@ function cotizarAuto (){
             if(anio =="x" || anio == "X"){
                 break
             }else{
-                crearCotizacion(modelo,marca,anio);
+                crearCotizacion((modelo-1),(marca-1),anio);
             }
         }
         if(modelo == "4"){
@@ -81,28 +133,22 @@ function cotizarAuto (){
 function crearCotizacion(modelo,marca,anio){
     
     if(anio < "2005" && anio != null){
-        if(marca === "1"){
-            alert("El auto "+ listMarcas[parseInt(marca)-1] + " " + listChevrolette[parseInt(modelo)-1]+ "con año "+ anio +" puede tener el tipo de seguro basico, " + listSeguros[0]);
-        }else if(marca === "2"){
-            alert("El auto "+ listMarcas[parseInt(marca)-1] + " " + listVolksWaguen[parseInt(modelo)-1]+ "con año "+ anio +" puede tener el tipo de seguro basico, " + listSeguros[0]);
-        }else{
-            alert("El auto "+ listMarcas[parseInt(marca)-1] + " " + listRenault[parseInt(modelo)-1]+ "con año "+ anio +" puede tener el tipo de seguro basico, " + listSeguros[0]);
-        }
+        console.log(listMarcas[marca].nombreMarca)
+        alert("El auto "+ listMarcas[marca].nombreMarca + " " + listMarcas[marca].modelos[modelo].nombreModelo + " con año "+ anio +" puede tener el tipo de seguro basico, " + listSegurosObject[0].nombreSeguro);
     }
     else {
-
-        if(marca === "1"){
-            alert("El auto "+ listMarcas[parseInt(marca)-1] + " " + listChevrolette[parseInt(modelo)-1] +" puede tener el tipo de seguro intermedio, " + listSeguros[1] + " o nuestro mejor seguro " +listSeguros[2]);
-        }else if(marca === "2"){
-            alert("El auto "+ listMarcas[parseInt(marca)-1] + " " + listVolksWaguen[parseInt(modelo)-1]+ "puede tener el tipo de seguro intermedio, " + listSeguros[1] + " o nuestro mejor seguro " +listSeguros[2]);
-        }else{
-            alert("El auto "+ listMarcas[parseInt(marca)-1] + " " + listRenault[parseInt(modelo)-1]+ "puede tener el tipo de seguro intermedio, " + listSeguros[1] + " o nuestro mejor seguro " +listSeguros[2]);
-        }
+        debugger
+        console.log(listMarcas[marca].nombreMarca)
+        alert("El auto "+ listMarcas[marca].nombreMarca + " " + listMarcas[marca].modelos[modelo].nombreModelo + " con año "+ anio +" puede tener el tipo de seguro intermedio, " + listSegurosObject[1].nombreSeguro + " o nuestro mejor seguro " +listSegurosObject[2].nombreSeguro);
+        
     }
 }
 
 function showSeguros() {
-    alert("los seguros disponibles son: \n" +listSeguros[0]+ "\n"+listSeguros[1]+"\n"+listSeguros[2])
+    alert("los seguros disponibles son: \n" +listSegurosObject[0].nombreSeguro + "\n"+listSegurosObject[1].nombreSeguro+"\n"+listSegurosObject[2].nombreSeguro)
 }
 
 console.log(cotizador());
+
+
+

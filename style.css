@@ -2,3 +2,15 @@ h1{
   font-style: italic;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
 }
+
+
+.grid-main{
+  padding: 2% 27% 10% 27%;;
+  margin-bottom: 5%;
+  display: grid;
+  grid-template-columns: 1fr ;
+  gap: 5px;
+
+
+
+}
