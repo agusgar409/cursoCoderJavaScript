@@ -1,12 +1,10 @@
-// const Asegurado = (modelo,marca,anio) => {
-//     this.marca = marca;
-//     this.modelo = modelo;
-//     this.anio = anio;
-// }
+// import { listChevrolette, listMarcas,listRenault,listVolksWaguen,listSeguros } from "./inicializacionListas";
+
+
+
 
 function cotizador(){
     let option
-    debugger
     
     while(option != "4"){
         
@@ -33,11 +31,7 @@ function cotizador(){
     }
 }
 
-const listChevrolette = ["Onix","Prisma","Cruze"];
-const listRenault = ["Gol","Gol Trend","Golf"];
-const listVolksWaguen = ["Clio","Kwid","Fluence"];
-const listMarcas = ["Chevrolette","VolksWaguen","Renault"]
-const listSeguros = [" seguro contra terceros"," seguro contra terceros completo"," contra todo riesgo"]
+   
 
 //crear el objeto marca, modelo y seguros
 //ahcer un arrayMarcas.push(new Marca(1,Chevrollete));
@@ -50,8 +44,6 @@ function cotizarAuto (){
     let modelo;
     let marca;
     let anio;
-    debugger
-    
 
     while(marca != "4"){
 
@@ -112,13 +104,7 @@ function showSeguros() {
     alert("los seguros disponibles son: \n" +listSeguros[0]+ "\n"+listSeguros[1]+"\n"+listSeguros[2])
 }
 
-// console.log(cotizador());
+console.log(cotizador());
 
-const listaMarcas = document.querySelector("inputGroupSelect01");
-
-listMarcas.forEach(marca => {
-    let option = document.createElement("option")
-    listaMarcas.appendChild(option)
-}) 
 
 
