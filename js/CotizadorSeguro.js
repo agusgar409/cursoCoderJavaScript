@@ -91,15 +91,6 @@ function cotizador(){
     }
 }
 
-   
-
-//crear el objeto marca, modelo y seguros
-//ahcer un arrayMarcas.push(new Marca(1,Chevrollete));
-// asi con los 3
-
-
-// despues hacer una funcion de orden superior para que cree options a los select;
-
 function cotizarAuto (){
     let modelo;
     let marca;
@@ -142,23 +133,19 @@ function cotizarAuto (){
 function crearCotizacion(modelo,marca,anio){
     
     if(anio < "2005" && anio != null){
-        debugger
         console.log(listMarcas[marca].nombreMarca)
         alert("El auto "+ listMarcas[marca].nombreMarca + " " + listMarcas[marca].modelos[modelo].nombreModelo + " con año "+ anio +" puede tener el tipo de seguro basico, " + listSegurosObject[0].nombreSeguro);
     }
     else {
         debugger
         console.log(listMarcas[marca].nombreMarca)
-        // console.log(listMarcas[marca].modelos[modelo].nombreModelo)
         alert("El auto "+ listMarcas[marca].nombreMarca + " " + listMarcas[marca].modelos[modelo].nombreModelo + " con año "+ anio +" puede tener el tipo de seguro intermedio, " + listSegurosObject[1].nombreSeguro + " o nuestro mejor seguro " +listSegurosObject[2].nombreSeguro);
         
     }
 }
 
 function showSeguros() {
-    
-    console.log("seguros"+seguros)
-    // alert("los seguros disponibles son: \n" +listSeguros[0]+ "\n"+listSeguros[1]+"\n"+listSeguros[2])
+    alert("los seguros disponibles son: \n" +listSegurosObject[0].nombreSeguro + "\n"+listSegurosObject[1].nombreSeguro+"\n"+listSegurosObject[2].nombreSeguro)
 }
 
 console.log(cotizador());
