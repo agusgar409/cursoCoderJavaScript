@@ -56,25 +56,28 @@
                 <form class="grid-main">
                   <div>
                     <label>Nombre completo: </label>
-                    <input class=" mb-3 form-control" type="text" placeholder="Default input" aria-label="default input example">
+                    <input id="nombre-completo" class=" mb-3 form-control" type="text" placeholder="Nombre y Apellido" aria-label="default input example">
                   </div>
-                    <div>
-                      <label>Numero patente: </label>
-                      <input class="mb-3 form-control" type="text" placeholder="Default input" aria-label="default input example">
-                    </div>
-                    <div class="input-group mb-3 mt-2">
-                        <label class="input-group-text" for="inputGroupSelect01">Marcas</label>
-                        <select class="form-select" id="inputGroupSelect01">
-                            <script source="./js/CotizadorSeguro.js" onclick="listMarcas"></script>
-                        </select>
-                    </div>
-                    <div class="input-group mb-3 mt-2">
-                        <label class="input-group-text" for="inputGroupSelect01">Modelos</label>
-                        <select class="form-select" id="inputGroupSelect02">
-                            <option selected>Choose...</option>
-                            <script src=""></script>
-                        </select>
-                    </div>
+                  <div>
+                    <label>Numero patente: </label>
+                    <input id="patente" class="mb-3 form-control" type="text" placeholder="AA123BB" aria-label="default input example">
+                  </div>
+                  <div class="input-group mb-3 mt-2">
+                    <label class="input-group-text" for="inputGroupSelect01">Marcas</label>
+                    <select class="form-select" id="lista-marcas">
+                      <option selected>Seleccione..</option>
+                    </select>
+                  </div>
+                  <div class="input-group mb-3 mt-2">
+                    <label class="input-group-text" for="inputGroupSelect01">Modelos</label>
+                    <select class="form-select" id="lista-modelos">
+                      <option selected>Seleccione..</option>
+                    </select>
+                  </div>
+                  <div>
+                    <button id="submit" type="submit">Aceptar</button>
+                    <button id="reset" type="reset">Limpiar</button>
+                  </div>
                 </form>
         </main>
         
