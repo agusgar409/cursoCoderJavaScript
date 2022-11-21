@@ -15,6 +15,8 @@ function Seguro(id,nombreSeguro){
     this.nombreSeguro = nombreSeguro;
 }
 
+
+
 const chevrolette = new Marca(1,"Chevrolette")
 const renault = new Marca(3,"Renault")
 const volksWaguen = new Marca(2,"VolksWaguen")
@@ -33,7 +35,6 @@ const listSegurosObject = [];
 // ------------------------------------  funcion de clase superior
 
 function addModelsToObject(listNames,marcaActual){
-    debugger
     let i = 1;
     listNames.forEach(element => {
         let model = new Modelo(i,element);
@@ -61,94 +62,71 @@ inicializarSeguros(listSeguros,listSegurosObject);
 
 // -------------------------------------------------------------------
 
+const nombreCompleto = document.getElementById("nombre-completo"); 
+const numeroPatente = document.getElementById("patente"); 
+const selectMarcas = document.querySelector("select[name='marcas']");
+const selectModelos = document.querySelector("select[name='modelos']")
+const buttonSubmit = document.getElementById("submit")
+const cleanStorage = document.getElementById("cleanStorage")
+
+buttonSubmit.onclick = () => {
+    debugger
+    if(nombreCompleto.value == numeroPatente.value == "" ||
+        selectMarcas.value === "Seleccione.."  ||
+        selectModelos.value === "Seleccione.." ) 
+    {
+        console.log("vacio no se puede papa")
+        return;
+    }
+    debugger
+    const payload = {
+        nombre: nombreCompleto.value,
+        patente: numeroPatente.value,
+        marca: listMarcas.find(elm => elm.id == selectMarcas.value).nombreMarca,
+
+        modelo: listMarcas.find(elm => elm.id == selectMarcas.value).
+                    modelos.find(elmModel => elmModel.id == selectModelos.value).nombreModelo
+    }
+    console.log(payload)
+
+    debugger
+    localStorage.setItem("nuevoAuto",JSON.stringify(payload));
+}
 
 
-function cotizador(){
-    let option
-    
-    while(option != "4"){
+listMarcas.forEach(marca => {
+
+    let option = document.createElement("option");
+
+    option.value = marca.id;
+    option.innerText = marca.nombreMarca;
+
+    selectMarcas.appendChild(option);
+
+})
+
+selectMarcas.onchange = () =>{
+    let indexMarca = selectMarcas.options.selectedIndex -1;
+    console.log(selectMarcas.options.selectedIndex)
+
+    buildSelectModels(listMarcas[indexMarca])
+}
+
+function buildSelectModels(listMarcas) {
+    listMarcas.modelos.forEach(modelo => {
+        console.log(modelo)
+        let option = document.createElement("option");
+
+        option.value = modelo.id;
+        option.innerText = modelo.nombreModelo;
         
-        option= prompt('Bienvenido, indiquenos que accion quiere realizar: \n 1-cotizar auto. \n 2-consulta cotizacion. \n 3-seguros desponibles. \n 4-Salir de la cotizacion');
-
-        if(option == "4"){
-            break;
-        }
-        
-        switch (option) {
-            case "1":
-                cotizarAuto();
-                break;
-            case "2":
-                alert("En mantenimiento jaja");
-                break;
-            case "3":
-                showSeguros();
-                break;
-            default:
-                alert("la opcion es incorrecta, seleccione otra vez")
-                break;
-        }
-    }
+        selectModelos.appendChild(option);
+        console.log(selectModelos)
+    })
 }
 
-function cotizarAuto (){
-    let modelo;
-    let marca;
-    let anio;
 
-    while(marca != "4"){
-
-        marca = prompt("ingrese la marca del auto. \n Tenemos las siguientes opciones disponibles: \n 1 - Chevrolette. \n 2 - VolksWaguen \n 3 - Renault \n 4 - para volver atras");
-
-        switch(marca){
-            case "1":
-                modelo = prompt("ingrese el modelo del auto. \n Tenemos las siguientes opciones disponibles: \n 1 - Onix \n 2 - Prisma \n 3 - Cruze \n x - para volver atras");
-                break
-            case "2":
-                modelo = prompt("ingrese el modelo del auto. \n Tenemos las siguientes opciones disponibles: \n 1 - Gol \n 2 - Gol Trend \n 3 - Golf \n x - para volver atras");
-                break
-            case "3":
-                modelo = prompt("ingrese el modelo del auto. \n Tenemos las siguientes opciones disponibles: \n 1 - Clio \n 2 - Kwid \n 3 - Fluence \n x - para volver atras");
-                break
-            default:
-                break
-        }
-
-        while(modelo != "4" || modelo != undefined){
-            anio = prompt("ingrese el año del auto. \n x - para volver atras");
-
-            if(anio =="x" || anio == "X"){
-                break
-            }else{
-                crearCotizacion((modelo-1),(marca-1),anio);
-            }
-        }
-        if(modelo == "4"){
-            break
-        }
-    }
-
+cleanStorage.onclick = () => {
+    localStorage.clear()
 }
-
-function crearCotizacion(modelo,marca,anio){
-    
-    if(anio < "2005" && anio != null){
-        console.log(listMarcas[marca].nombreMarca)
-        alert("El auto "+ listMarcas[marca].nombreMarca + " " + listMarcas[marca].modelos[modelo].nombreModelo + " con año "+ anio +" puede tener el tipo de seguro basico, " + listSegurosObject[0].nombreSeguro);
-    }
-    else {
-        debugger
-        console.log(listMarcas[marca].nombreMarca)
-        alert("El auto "+ listMarcas[marca].nombreMarca + " " + listMarcas[marca].modelos[modelo].nombreModelo + " con año "+ anio +" puede tener el tipo de seguro intermedio, " + listSegurosObject[1].nombreSeguro + " o nuestro mejor seguro " +listSegurosObject[2].nombreSeguro);
-        
-    }
-}
-
-function showSeguros() {
-    alert("los seguros disponibles son: \n" +listSegurosObject[0].nombreSeguro + "\n"+listSegurosObject[1].nombreSeguro+"\n"+listSegurosObject[2].nombreSeguro)
-}
-
-console.log(cotizador());
-
-
 
