@@ -62,28 +62,71 @@ inicializarSeguros(listSeguros,listSegurosObject);
 
 // -------------------------------------------------------------------
 
-const nombreCompleto = document.querySelector("#nombre-completo"); 
-const numeroPatente = document.getElementById("#patente"); 
-const listaMarcas = document.querySelector("#lista-marcas");
-const listaModelos = document.querySelector("#lista-modelos")
-const buttonSubmit = document.querySelector("#submit")
-const buttonReset = document.querySelector("#reset")
- 
-nombreCompleto.onchange = () => {
+const nombreCompleto = document.getElementById("nombre-completo"); 
+const numeroPatente = document.getElementById("patente"); 
+const selectMarcas = document.querySelector("select[name='marcas']");
+const selectModelos = document.querySelector("select[name='modelos']")
+const buttonSubmit = document.getElementById("submit")
+const cleanStorage = document.getElementById("cleanStorage")
+
+buttonSubmit.onclick = () => {
     debugger
-    let ownerName = nombreCompleto.value;
-    console.log(ownerName);
+    if(nombreCompleto.value == numeroPatente.value == "" ||
+        selectMarcas.value === "Seleccione.."  ||
+        selectModelos.value === "Seleccione.." ) 
+    {
+        console.log("vacio no se puede papa")
+        return;
+    }
+    debugger
+    const payload = {
+        nombre: nombreCompleto.value,
+        patente: numeroPatente.value,
+        marca: listMarcas.find(elm => elm.id == selectMarcas.value).nombreMarca,
+
+        modelo: listMarcas.find(elm => elm.id == selectMarcas.value).
+                    modelos.find(elmModel => elmModel.id == selectModelos.value).nombreModelo
+    }
+    console.log(payload)
+
+    debugger
+    localStorage.setItem("nuevoAuto",JSON.stringify(payload));
 }
 
-numeroPatente.onchange = () => {
-    let numeroPatenteRecibido = numeroPatente.value;
-    console.log(numeroPatenteRecibido);
+
+listMarcas.forEach(marca => {
+
+    let option = document.createElement("option");
+
+    option.value = marca.id;
+    option.innerText = marca.nombreMarca;
+
+    selectMarcas.appendChild(option);
+
+})
+
+selectMarcas.onchange = () =>{
+    let indexMarca = selectMarcas.options.selectedIndex -1;
+    console.log(selectMarcas.options.selectedIndex)
+
+    buildSelectModels(listMarcas[indexMarca])
+}
+
+function buildSelectModels(listMarcas) {
+    listMarcas.modelos.forEach(modelo => {
+        console.log(modelo)
+        let option = document.createElement("option");
+
+        option.value = modelo.id;
+        option.innerText = modelo.nombreModelo;
+        
+        selectModelos.appendChild(option);
+        console.log(selectModelos)
+    })
 }
 
 
-
-
-console.log(nombreCompleto);
-
-
+cleanStorage.onclick = () => {
+    localStorage.clear()
+}
 
