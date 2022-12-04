@@ -1,0 +1,153 @@
+[
+    {
+        "id":1,
+        "nombreVercion":"1.4 3P LS",
+        "idModelo":1
+    },
+    {
+        "id":2,
+        "nombreVercion":"G3 LS 1.6N L/12 CON AC",
+        "idModelo":2
+    },
+    {
+        "id":3,
+        "nombreVercion":"SS CON AC",
+        "idModelo":3
+    },
+    {
+        "id":4,
+        "nombreVercion":"2 1.2 5P PACK I CON AC",
+        "idModelo":4
+    },
+    {
+        "id":5,
+        "nombreVercion":"GET UP 1.5 DCI2 PLC PK CON AC",
+        "idModelo":5
+    },
+    {
+        "id":6,
+        "nombreVercion":"1.6 8V PACK L/10 CON AC",
+        "idModelo":6
+    },
+    {
+        "id":7,
+        "nombreVercion":"1.4I SX R CON AC",
+        "idModelo":7
+    },
+    {
+        "id":8,
+        "nombreVercion":"1.6/1.4 I X 5 PTAS. CON AC",
+        "idModelo":8
+    },
+    {
+        "id":9,
+        "nombreVercion":"2.0 I CONFORT L/09 CON AC",
+        "idModelo":9
+    },
+    {
+        "id":10,
+        "nombreVercion":"NAFTERO FURGON (COMERCIAL)",
+        "idModelo":10
+    },
+    {
+        "id":11,
+        "nombreVercion":"1.4 3P FIRE L/09",
+        "idModelo":11
+    },
+    {
+        "id":12,
+        "nombreVercion":"1.4 FIRE AA CON AC",
+        "idModelo":12
+    },
+    {
+        "id":13,
+        "nombreVercion":"2.5 LE DC 4X4 CON AC",
+        "idModelo":13
+    },
+    {
+        "id":14,
+        "nombreVercion":"3.5 V6 CON AC",
+        "idModelo":14
+    },
+    {
+        "id":15,
+        "nombreVercion":"250 XV AUT XTRONIC CON AC",
+        "idModelo":15
+    },
+    {
+        "id":16,
+        "nombreVercion":"1.6 XL PLUS L/N CON AC",
+        "idModelo":16
+    },
+    {
+        "id":17,
+        "nombreVercion":"ONE ENERGY 1.6",
+        "idModelo":17
+    },
+    {
+        "id":18,
+        "nombreVercion":"1.6 TREND 5P CON AC",
+        "idModelo":18
+    },
+    {
+        "id":19,
+        "nombreVercion":"GENERATION 1.4 5P CON AC",
+        "idModelo":29
+    },
+    {
+        "id":20,
+        "nombreVercion":"1.6 CC 156 HP CON AC",
+        "idModelo":30
+    },
+    {
+        "id":21,
+        "nombreVercion":"1.6 16V ACTIVE 5P CON AC",
+        "idModelo":19
+    },
+    {
+        "id":22,
+        "nombreVercion":"4X4 C/D SRV 3.0 TDI MT L/12 CON AC",
+        "idModelo":20
+    },
+    {
+        "id":23,
+        "nombreVercion":"XEI 1.8 AT L/08 CON AC",
+        "idModelo":21
+    },
+    {
+        "id":29,
+        "nombreVercion":"FMC 1.8 CVT CON AC",
+        "idModelo":22
+    },
+    {
+        "id":24,
+        "nombreVercion":"SI 200 CV CON AC",
+        "idModelo":23
+    },
+    {
+        "id":25,
+        "nombreVercion":"LX 2.4 4X4 AT L/08 CON AC",
+        "idModelo":24
+    },
+    {
+        "id":26,
+        "nombreVercion":"LX 1.4 L/09 CON AC",
+        "idModelo":25
+    },
+    {
+        "id":27,
+        "nombreVercion":"1.9 TDI TRENDLINE L/07 CON AC",
+        "idModelo":26
+    },
+    {
+        "id":28,
+        "nombreVercion":"1.4 POWER 5P",
+        "idModelo":27
+    },
+    {
+        "id":31,
+        "nombreVercion":"1.6 ADVANCE CON AC",
+        "idModelo":28
+    }
+
+]
