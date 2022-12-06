@@ -1,0 +1,26 @@
+[
+    {
+        "id" : 1,
+        "nombreCotizacion":"Terceros Completo",
+        "precio": 9.009,
+        "detalle":"Con proteccion ante robo, daños e incendio total.",
+        "coberturas": ["Responsabilidad Civil","Daños, incendio y robo total","Robo e incendio parcial"],
+        "minAntiguedad" : "2000"
+    },
+    {
+        "id" : 2,
+        "nombreCotizacion":"Terceros Completo con granizo",
+        "precio": 11.844,
+        "detalle":"Con proteccion ante robo, daños e incendio total.",
+        "coberturas": ["Responsabilidad Civil","Daños, incendio y robo total","Luneta y parabrisas","Daños por granizo hasta $200.000"],
+        "minAntiguedad" : "2008"
+    },
+    {
+        "id" : 3,
+        "nombreCotizacion":"Terceros Completo con Franquicia",
+        "precio": 15.841,
+        "detalle":"Con proteccion ante robo, daños e incendio total.",
+        "coberturas": ["Responsabilidad Civil","Daños, incendio y robo total","Luneta y parabrisas","Daños por granizo sin límite"],
+        "minAntiguedad" : "2011"
+    }
+]

@@ -7,7 +7,7 @@ const YEARS = Array.from(new Array(20), (valor, index) => YEARMAX - index);
 
 
 // -------------------------------------------------------------------
-const anioSelector = document.querySelector("select[name='anio-selector']")
+const selectAnio = document.querySelector("select[name='anio-selector']")
 const selectMarcas = document.querySelector("select[name='marca']");
 const selectModelos = document.querySelector("select[name='modelo']")
 const selectVersion = document.querySelector("select[name='version']")
@@ -15,40 +15,45 @@ const selectVersion = document.querySelector("select[name='version']")
 const buttonSubmit = document.getElementById("submit")
 const cleanStorage = document.getElementById("cleanStorage")
 
-
-
+const nombre = document.getElementById("name")
+const apellido = document.getElementById("apellido")
+const mail = document.getElementById("email")
+const codArea = document.getElementById("codArea")
+const telefono = document.getElementById("nroTelefono")
 
 
 buttonSubmit.onclick = () => {
-    
-    if(nombreCompleto.value == numeroPatente.value == "" ||
-        selectMarcas.value === "Seleccione.."  ||
-        selectModelos.value === "Seleccione.." ) 
+    debugger
+    if(nombre?.value === apellido?.value === null ||
+        selectMarcas?.value === "Seleccioná"  ||
+        selectModelos?.value === "Seleccioná" ) 
     {
         console.log("vacio no se puede papa")
         return;
     }
+    debugger
     
     const payload = {
-        // nombre: nombreCompleto.value,
-        // patente: numeroPatente.value,
-        // marca: listMarcas.find(elm => elm.id == selectMarcas.value).nombreMarca,
-
-        // modelo: listMarcas.find(elm => elm.id == selectMarcas.value).
-        //             modelos.find(elmModel => elmModel.id == selectModelos.value).nombreModelo
+        nombre: nombre.value,
+        apellido: apellido.value,
+        email: mail.value,
+        codArea: codArea.value,
+        telefono: telefono.value,
+        marca: selectMarcas.value,
+        modelo: selectModelos.value,
+        vercion: selectVersion.value, 
+        anio: selectAnio.value
     }
     console.log(payload)
 
     
-    localStorage.setItem("nuevoAuto",JSON.stringify(payload));
+    localStorage.setItem("nueva_cotizacion",JSON.stringify(payload));
 }
 
 const cleanSelectModel = () => {
 
     var options = document.querySelectorAll('#modelo option');
     options.forEach(o => {
-        debugger
-        console.log(o)
         o.value !== ""? 
         o.remove()
         :
@@ -61,8 +66,6 @@ const cleanSelectVercion= () => {
 
     var options = document.querySelectorAll('#version option');
     options.forEach(o => {
-        debugger
-        console.log(o)
         o.value !== ""? 
         o.remove()
         :
@@ -79,7 +82,7 @@ selectMarcas.onchange = (evt) =>{
     obtenerModelosPorMarca(value)
 }
 
-anioSelector.onchange = () => {
+selectAnio.onchange = () => {
 
 }
 
@@ -106,19 +109,15 @@ const urlVerciones = "/js/data/verciones.json"
 //--------------fetch data -------------------
 
 function obtenerVercionesPorModelo(idModelo) {
-    console.log(idModelo)
     fetch(urlVerciones)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
-        
         data.map(elm => {
             
             if(elm?.idModelo == idModelo){
                 let option = document.createElement("option");
                 option.value = elm.id;
                 option.innerText = elm.nombreVercion;
-                console.log(elm)
                 selectVersion.appendChild(option);
             }
         })
@@ -127,19 +126,14 @@ function obtenerVercionesPorModelo(idModelo) {
 
 
 function obtenerModelosPorMarca(idMarca) {
-    console.log(idMarca)
     fetch(urlModelos)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
-        
         data.map(elm => {
-            
             if(elm?.idMarca == idMarca){
                 let option = document.createElement("option");
                 option.value = elm.id;
                 option.innerText = elm.nombreModelo;
-                console.log(elm)
                 selectModelos.appendChild(option);
             }
         })
@@ -153,7 +147,6 @@ fetch(urlMarcas)
         let option = document.createElement("option");
         option.value = elm.id;
         option.innerText = elm.nombreMarca;
-        console.log(elm)
         selectMarcas.appendChild(option);
     })
 })
@@ -162,8 +155,7 @@ YEARS.map(elm => {
     let option = document.createElement("option");
     option.value = elm;
     option.innerText = elm;
-    console.log(elm)
-    anioSelector.appendChild(option);
+    selectAnio.appendChild(option);
 })
 
 //-------------- end fetch data -------------------
