@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/agusgar409/cursoCoderJavaScript#readme",
   "dependencies": {
-    "bootstrap": "^5.2.2"
+    "bootstrap": "^5.2.2",
+    "sweetalert2": "^11.6.15",
+    "toastify-js": "^1.12.0"
   }
 }

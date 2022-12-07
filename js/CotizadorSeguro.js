@@ -13,7 +13,7 @@ const selectModelos = document.querySelector("select[name='modelo']")
 const selectVersion = document.querySelector("select[name='version']")
 
 const buttonSubmit = document.getElementById("submit")
-const cleanStorage = document.getElementById("cleanStorage")
+const cleanStorage = document.getElementById("reset")
 
 const nombre = document.getElementById("name")
 const apellido = document.getElementById("apellido")
@@ -93,14 +93,20 @@ selectModelos.onchange = (evt) => {
     obtenerVercionesPorModelo(value)
 }
 
-// selectVersion.onchange = () => {
+
+cleanStorage.onclick = (evt) => {
+    console.log(evt)
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Todo limpio',
+        showConfirmButton: false,
+        timer: 1500
+    })
+    localStorage.clear()
+
     
-// }
-
-
-// cleanStorage.onclick = () => {
-//     localStorage.clear()
-// }
+}
 
 const urlMarcas = "/js/data/marcas.json"
 const urlModelos = "/js/data/modelos.json"
