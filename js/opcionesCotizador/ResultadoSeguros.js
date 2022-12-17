@@ -28,10 +28,11 @@ const chequearAntiguedad = (data) => {
 }
 
 const crearDomCotizacion = (data) => {
-    debugger
+    
+    let nuevaCotizacion = document.createElement("div")
 
-    flexparaCotizaciones.innerHTML = `
-        <div class="col-md-4 active">
+    nuevaCotizacion.innerHTML = `
+        <div class="col-md-4 pt-5">
             <div class="pack9">
                 <div class="row">
                     <div class="col-md-12">
@@ -52,7 +53,6 @@ const crearDomCotizacion = (data) => {
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                     <div class="col-md-12">
                         <div class="column-body">
@@ -72,7 +72,7 @@ const crearDomCotizacion = (data) => {
     `
     
     
-    document.flexparaCotizaciones.appendChild(flexparaCotizaciones);
+    flexparaCotizaciones.append(nuevaCotizacion);
     
 
 }
